@@ -121,9 +121,9 @@
         },
         "storageProfile": {
           "imageReference": {
-            "publisher": "MicrosoftWindowsServer",
-            "offer": "WindowsServer",
-            "sku": "2019-Datacenter",
+            "publisher": "MicrosoftVisualStudio",
+            "offer": "VisualStudio",
+            "sku": "VS-2017-Comm-Latest-WS2016",
             "version": "latest"
           },
           "osDisk": {
@@ -550,10 +550,10 @@
     {
       "type": "Microsoft.Compute/virtualMachines",
       "apiVersion": "2019-07-01",
-      "name": "linux-1",
+      "name": "windows-1",
       "location": "[parameters('region')]",
       "dependsOn": [
-        "[concat('Microsoft.Network/networkInterfaces/', 'linux-1-nic')]",
+        "[concat('Microsoft.Network/networkInterfaces/', 'windows-1-nic')]",
         "[concat('Microsoft.Storage/storageAccounts/', variables('diagStorageAccountName'))]"
       ],
       "properties": {
@@ -562,14 +562,14 @@
           },
           "storageProfile": {
               "imageReference": {
-                  "publisher": "Canonical",
-                  "offer": "UbuntuServer",
-                  "sku": "18.04-LTS",
+                  "publisher": "MicrosoftVisualStudio",
+                  "offer": "VisualStudio",
+                  "sku": "VS-2017-Comm-Latest-WS2016",
                   "version": "latest"
               },
               "osDisk": {
-                  "osType": "Linux",
-                  "name": "linux-1-os",
+                  "osType": "Windows",
+                  "name": "windows-1-os",
                   "createOption": "FromImage",
                   "caching": "ReadWrite",
                   "managedDisk": {
@@ -580,7 +580,7 @@
               "dataDisks": []
           },
           "osProfile": {
-              "computerName": "linux-1",
+              "computerName": "windows-1",
               "adminUsername": "[parameters('adminUsername')]",
               "adminPassword": "[parameters('adminPassword')]",
               "linuxConfiguration": {
@@ -593,7 +593,7 @@
           "networkProfile": {
               "networkInterfaces": [
                   {
-                      "id": "[resourceId('Microsoft.Network/networkInterfaces', 'linux-1-nic')]"
+                      "id": "[resourceId('Microsoft.Network/networkInterfaces', 'windows-1-nic')]"
                   }
               ]
           },
@@ -606,7 +606,7 @@
       }
   },
   {
-    "name": "linux-1-nic",
+    "name": "windows-1-nic",
     "type": "Microsoft.Network/networkInterfaces",
     "apiVersion": "2016-09-01",
     "location": "[parameters('region')]",
@@ -746,9 +746,9 @@
         },
         "storageProfile": {
           "imageReference": {
-            "publisher": "MicrosoftSQLServer",
-            "offer": "SQL2016SP1-WS2016",
-            "sku": "Enterprise",
+            "publisher": "MicrosoftVisualStudio",
+            "offer": "VisualStudio",
+            "sku": "VS-2017-Comm-Latest-WS2016",
             "version": "latest"
           },
           "osDisk": {
@@ -823,9 +823,9 @@
         },
         "storageProfile": {
           "imageReference": {
-            "publisher": "MicrosoftWindowsServer",
-            "offer": "WindowsServer",
-            "sku": "2016-Datacenter",
+            "publisher": "MicrosoftVisualStudio",
+            "offer": "VisualStudio",
+            "sku": "VS-2017-Comm-Latest-WS2016",
             "version": "latest"
           },
           "osDisk": {
